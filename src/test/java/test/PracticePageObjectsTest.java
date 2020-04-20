@@ -12,6 +12,7 @@ public static void main(String[] args) {
 	setUp();
 	radiobuttonTest();
 	autoCompleteTest();
+	staticDropdownTest();
 	tearDown();
 	
 }
@@ -39,12 +40,22 @@ public static void autoCompleteTest() {
 	System.out.println("Selected Singapore");
 }
 
+public static void staticDropdownTest() {
+	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+	practicePageObj.selectStaticDropdown();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("Selected Option2");
+}
+
 public static void setUp() {
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
 	driver.get("https://rahulshettyacademy.com/AutomationPractice/");
-	
-	
 }
 
 public static void tearDown() {

@@ -3,18 +3,19 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 
 public class PracticePageObjects {
 	private static WebDriver driver = null;
 	By radiobutton_click = By.xpath("//input[@value='radio1']");
 	By autocomplete_select = By.id("autocomplete");
+	By staticdropdown_select = By.id("dropdown-class-example");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
 		this.driver = driver;
 	}
-	
-	
 	
 	public void clickRadioButton() {
 		driver.findElement(radiobutton_click).click();
@@ -34,5 +35,12 @@ public class PracticePageObjects {
 		}
 		driver.findElement(autocomplete_select).sendKeys(Keys.RETURN);
 	}
+	
+	public void selectStaticDropdown() {
+		WebElement element = driver.findElement(staticdropdown_select);
+		Select s = new Select(element);
+		s.selectByValue("option2");
+	}
+	
 
 }
