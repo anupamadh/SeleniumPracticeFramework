@@ -11,12 +11,12 @@ public class PracticePageObjectsTest {
 public static void main(String[] args) {
 	setUp();
 	radiobuttonTest();
+	autoCompleteTest();
 	tearDown();
 	
 }
 public static void radiobuttonTest() {
 	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
-	driver.get("https://rahulshettyacademy.com/AutomationPractice/");
 	practicePageObj.clickRadioButton();
 	try {
 		Thread.sleep(3000);
@@ -27,9 +27,23 @@ public static void radiobuttonTest() {
 	System.out.println("Clicked on radio button");
 }
 
+public static void autoCompleteTest() {
+	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+	practicePageObj.selectAutoComplete();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	System.out.println("Selected Singapore");
+}
+
 public static void setUp() {
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();
+	driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+	
 	
 }
 
