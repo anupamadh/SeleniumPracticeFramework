@@ -19,6 +19,7 @@ public class PracticePageObjectsTest {
 		switchTabTest();
 		switchAlertTest();
 		selectTableCellTest();
+		checkShowHideTest();
 		tearDown();
 
 	}
@@ -108,6 +109,11 @@ public class PracticePageObjectsTest {
 	public static void selectTableCellTest() {
 		PracticePageObjects practicePageObj = new PracticePageObjects(driver);
 		practicePageObj.selectTableCell();
+	}
+	
+	public static void checkShowHideTest() {
+		PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+		practicePageObj.checkShowHide();
 	}
 	
 	public static void setUp() {

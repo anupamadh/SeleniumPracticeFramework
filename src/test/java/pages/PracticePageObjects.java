@@ -25,6 +25,9 @@ public class PracticePageObjects {
 	 * The 1st row is the header row.
 	 */
 	By cell_select = By.xpath("//table/tbody/tr[4]/td[3]");
+	By show_button = By.id("show-textbox");
+	By hide_button = By.id("hide-textbox");
+	By show_hide_text = By.id("displayed-text");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -128,5 +131,38 @@ public class PracticePageObjects {
 	public void selectTableCell() {
 		String innerText = driver.findElement(cell_select).getText();
 		System.out.println("Table Cell = "+ innerText);
+	}
+	
+	public void checkShowHide() {
+		driver.findElement(show_button).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Boolean isPresentShow = driver.findElement(show_hide_text).isDisplayed();
+		if (isPresentShow) {
+			System.out.println("Show button clicked.Show Hide element is displayed");
+		}
+		else
+		{
+			System.out.println("Show button clicked.Show Hide element is NOT displayed");
+		}
+		driver.findElement(hide_button).click();
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		Boolean isPresentHide = driver.findElement(show_hide_text).isDisplayed();
+		if (isPresentHide) {
+			System.out.println("Hide button clicked.Show Hide element is displayed");
+		}
+		else
+		{
+			System.out.println("Hide button clicked.Show Hide element is NOT displayed");
+		}
 	}
 }
