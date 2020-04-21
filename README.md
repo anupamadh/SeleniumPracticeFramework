@@ -11,3 +11,5 @@ Practice for locating and selecting the following Web elements:
 - Web Table
 - Element displayed
 - Mouse Hover
+- Number of iframes in a page
+- Switch to an iframe and click on a link 
