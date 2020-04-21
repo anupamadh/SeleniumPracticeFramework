@@ -20,6 +20,7 @@ public class PracticePageObjectsTest {
 		switchAlertTest();
 		selectTableCellTest();
 		checkShowHideTest();
+		mouseHoverTest();
 		tearDown();
 
 	}
@@ -116,10 +117,15 @@ public class PracticePageObjectsTest {
 		practicePageObj.checkShowHide();
 	}
 	
+	public static void mouseHoverTest() {
+		PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+		practicePageObj.mouseHover();
+	}
 	public static void setUp() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();
 		driver.get("https://rahulshettyacademy.com/AutomationPractice/");
+		driver.manage().window().maximize();
 	}
 
 	public static void tearDown() {

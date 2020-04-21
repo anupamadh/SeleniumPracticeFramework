@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
 public class PracticePageObjects {
@@ -28,6 +29,7 @@ public class PracticePageObjects {
 	By show_button = By.id("show-textbox");
 	By hide_button = By.id("hide-textbox");
 	By show_hide_text = By.id("displayed-text");
+	By mouse_hover = By.id("mousehover");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -164,5 +166,28 @@ public class PracticePageObjects {
 		{
 			System.out.println("Hide button clicked.Show Hide element is NOT displayed");
 		}
+		
+		
+	}
+	public void mouseHover() {
+		Actions actions = new Actions(driver);
+		WebElement element = driver.findElement(mouse_hover);
+		actions.moveToElement(element).perform();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Done Mouse hover on 'Mouse Over'");
+		WebElement mouseHoverOption = driver.findElement(By.xpath("//div/a[contains(text(),'Reload')]"));
+		mouseHoverOption.click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println("Clicked on Reload");
 	}
 }
