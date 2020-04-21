@@ -16,6 +16,7 @@ public static void main(String[] args) {
 	checkboxTest();
 	numberOfCheckboxesTest();
 	switchWindowTest();
+	switchTabTest();
 	tearDown();
 	
 }
@@ -78,8 +79,19 @@ public static void switchWindowTest() {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
 	}
-	
 }
+
+public static void switchTabTest() {
+	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+	practicePageObj.switchTab();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
+
 public static void setUp() {
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();

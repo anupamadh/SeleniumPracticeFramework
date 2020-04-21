@@ -16,6 +16,7 @@ public class PracticePageObjects {
 	By checkbox_click = By.id("checkBoxOption3");
 	By checkbox_count= By.cssSelector("input[type='checkbox']");
 	By window_switch = By.id("openwindow");
+	By tab_switch = By.id("opentab");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -59,14 +60,29 @@ public class PracticePageObjects {
 	
 	public void switchWindow() {
 		driver.findElement(window_switch).click();
+		String handle= driver.getWindowHandle();
 		Set handles = driver.getWindowHandles();
 		for (String handle1 : driver.getWindowHandles()) {
-			 
 	          System.out.println(handle1);
-	 
 	          driver.switchTo().window(handle1);
 	 
 	          }
-		
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.switchTo().window(handle);
+	}
+	
+	public void switchTab() {
+		driver.findElement(tab_switch).click();
+		Set handles = driver.getWindowHandles();
+		for (String handle1 : driver.getWindowHandles()) {
+	          System.out.println(handle1);
+	          driver.switchTo().window(handle1);
+	 
+	          }
 	}
 }
