@@ -9,3 +9,4 @@ Practice for locating and selecting the following Web elements:
 - Switch tab
 - Alert popup
 - Web Table
+- Element displayed
