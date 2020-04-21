@@ -18,6 +18,7 @@ public class PracticePageObjectsTest {
 		switchWindowTest();
 		switchTabTest();
 		switchAlertTest();
+		selectTableCellTest();
 		tearDown();
 
 	}
@@ -104,6 +105,11 @@ public class PracticePageObjectsTest {
 		}
 	}
 
+	public static void selectTableCellTest() {
+		PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+		practicePageObj.selectTableCell();
+	}
+	
 	public static void setUp() {
 		WebDriverManager.chromedriver().setup();
 		driver = new ChromeDriver();

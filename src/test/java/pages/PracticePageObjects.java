@@ -20,6 +20,11 @@ public class PracticePageObjects {
 	By alert_switch = By.id("name");
 	By alert_button = By.id("alertbtn");
 	By confirm_button = By.id("confirmbtn");
+	/** Web Table -accessing the 3rd row, 3rd column. 
+	 * It should be able to access the value at that cell which is 30.
+	 * The 1st row is the header row.
+	 */
+	By cell_select = By.xpath("//table/tbody/tr[4]/td[3]");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -118,5 +123,10 @@ public class PracticePageObjects {
 			e.printStackTrace();
 		}
 		driver.switchTo().alert().dismiss();
+	}
+	
+	public void selectTableCell() {
+		String innerText = driver.findElement(cell_select).getText();
+		System.out.println("Table Cell = "+ innerText);
 	}
 }
