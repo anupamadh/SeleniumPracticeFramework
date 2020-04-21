@@ -10,3 +10,4 @@ Practice for locating and selecting the following Web elements:
 - Alert popup
 - Web Table
 - Element displayed
+- Mouse Hover
