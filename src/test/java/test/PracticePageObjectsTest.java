@@ -13,6 +13,8 @@ public static void main(String[] args) {
 	radiobuttonTest();
 	autoCompleteTest();
 	staticDropdownTest();
+	checkboxTest();
+	numberOfCheckboxesTest();
 	tearDown();
 	
 }
@@ -51,7 +53,20 @@ public static void staticDropdownTest() {
 	}
 	System.out.println("Selected Option2");
 }
-
+public static void numberOfCheckboxesTest() {
+	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+	practicePageObj.checkboxCount();
+}
+public static void checkboxTest() {
+	PracticePageObjects practicePageObj = new PracticePageObjects(driver);
+	practicePageObj.clickCheckBox();
+	try {
+		Thread.sleep(3000);
+	} catch (InterruptedException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+}
 public static void setUp() {
 	WebDriverManager.chromedriver().setup();
 	driver = new ChromeDriver();

@@ -11,6 +11,8 @@ public class PracticePageObjects {
 	By radiobutton_click = By.xpath("//input[@value='radio1']");
 	By autocomplete_select = By.id("autocomplete");
 	By staticdropdown_select = By.id("dropdown-class-example");
+	By checkbox_click = By.id("checkBoxOption3");
+	By checkbox_count= By.cssSelector("input[type='checkbox']");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -42,5 +44,13 @@ public class PracticePageObjects {
 		s.selectByValue("option2");
 	}
 	
+	public void clickCheckBox() {
+		System.out.println(driver.findElement(checkbox_click).isSelected());
+		driver.findElement(checkbox_click).click();
+		System.out.println(driver.findElement(checkbox_click).isSelected());
+	}
 
+	public void checkboxCount() {
+		System.out.println("No. of checkboxes = " + driver.findElements(checkbox_count).size());
+	}
 }
