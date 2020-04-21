@@ -1,4 +1,5 @@
 # SeleniumPracticeFramework
+## This project uses the Maven framework and POM(Page Object Model)
 Practice for locating and selecting the following Web elements:
 - Radio button
 - Autocomplete dropdown
@@ -6,3 +7,4 @@ Practice for locating and selecting the following Web elements:
 - Checkbox and the number of checkboxes on the page
 - Switch window
 - Switch tab
+- Alert popup
