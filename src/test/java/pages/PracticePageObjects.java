@@ -17,6 +17,9 @@ public class PracticePageObjects {
 	By checkbox_count= By.cssSelector("input[type='checkbox']");
 	By window_switch = By.id("openwindow");
 	By tab_switch = By.id("opentab");
+	By alert_switch = By.id("name");
+	By alert_button = By.id("alertbtn");
+	By confirm_button = By.id("confirmbtn");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -68,7 +71,7 @@ public class PracticePageObjects {
 	 
 	          }
 		try {
-			Thread.sleep(3000);
+			Thread.sleep(2000);
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -78,11 +81,42 @@ public class PracticePageObjects {
 	
 	public void switchTab() {
 		driver.findElement(tab_switch).click();
+		String handle= driver.getWindowHandle();
 		Set handles = driver.getWindowHandles();
 		for (String handle1 : driver.getWindowHandles()) {
 	          System.out.println(handle1);
 	          driver.switchTo().window(handle1);
 	 
 	          }
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.switchTo().window(handle);
+	}
+	
+	public void switchAlert() {
+		driver.findElement(alert_switch).click();
+		driver.findElement(alert_switch).sendKeys("Anupama");
+		driver.findElement(alert_button).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.switchTo().alert().accept();
+		driver.findElement(alert_switch).click();
+		driver.findElement(alert_switch).sendKeys("Anupama");
+		driver.findElement(confirm_button).click();
+		try {
+			Thread.sleep(2000);
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		driver.switchTo().alert().dismiss();
 	}
 }
