@@ -1,5 +1,7 @@
 package pages;
 
+import java.util.Set;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -13,6 +15,7 @@ public class PracticePageObjects {
 	By staticdropdown_select = By.id("dropdown-class-example");
 	By checkbox_click = By.id("checkBoxOption3");
 	By checkbox_count= By.cssSelector("input[type='checkbox']");
+	By window_switch = By.id("openwindow");
 	
 	public PracticePageObjects(WebDriver driver)
 	{
@@ -52,5 +55,18 @@ public class PracticePageObjects {
 
 	public void checkboxCount() {
 		System.out.println("No. of checkboxes = " + driver.findElements(checkbox_count).size());
+	}
+	
+	public void switchWindow() {
+		driver.findElement(window_switch).click();
+		Set handles = driver.getWindowHandles();
+		for (String handle1 : driver.getWindowHandles()) {
+			 
+	          System.out.println(handle1);
+	 
+	          driver.switchTo().window(handle1);
+	 
+	          }
+		
 	}
 }
